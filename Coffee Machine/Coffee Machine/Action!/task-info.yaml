@@ -288,22 +288,9 @@ files:
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/68/stages/369/implement
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Exception in test #1
-
-    Traceback (most recent call last):
-      File "coffee_machine.py", line 10, in <module>
-        water_aval = int(input())
-    ValueError: invalid literal for int() with base 10: 'take'
-
-    Please find below the output of your program during this failed test.
-    Note that the '>' character indicates the beginning of the input line.
-
-    ---
-
-    Write how many ml of water the coffee machine has:
-    > take
-  time: Tue, 07 Jul 2020 19:52:36 UTC
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/68/stages/369/implement">JetBrains
+    Academy</a>
+  time: Tue, 07 Jul 2020 22:13:11 UTC
 record: -1

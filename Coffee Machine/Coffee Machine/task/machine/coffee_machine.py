@@ -1,36 +1,61 @@
-# Stage #3: Enough coffee for everyone
+# Stage #4: Action
 
-# step 1: requests amount of water, milk and coffee beans available
+# Initializing variables:
+mach_money = 550
+mach_water = 400
+mach_milk = 540
+mach_coffee = 120
+mach_cups = 9
 
-# requesting the amounts:
-# variables: water_aval - available water type integer
-#            milk_aval - available milk type integer
-#            coffee_aval - available coffee type integer
-print(f"Write how many ml of water the coffee machine has:")
-water_aval = int(input())
-print(f"Write how many ml of milk the coffee machine has:")
-milk_aval = int(input())
-print(f"Write how many grams of coffee beans the coffee machine has:")
-coffee_aval = int(input())
+print("The coffee machine has:")
+print(f"{mach_water} of water")
+print(f"{mach_milk} of milk")
+print(f"{mach_coffee} of coffee beans")
+print(f"{mach_cups} of disposable cups")
+print(f"{mach_money} of money")
 
-# Based in the quantities available, the machine should return messages according to availability and number
-# of coffee cups desired by the  user
+# First, the Machine has to read what you wanna do
+print("What you want to do? Type in the option:")
+choose_option = input()
 
-# Based in the recipe: 200 ml of water, 50 ml of milk, 15 g of coffee beans, calculate max number of cups
-water_rest = water_aval // 200
-milk_rest = milk_aval // 50
-coffee_rest = coffee_aval // 15
+# Recipes:      water   milk    coffe   price
+# espresso:     250     0       16      4
+# latte:        350     75      20      7
+# cappuccino    200     100     12      6
 
-# Check the minimum between them
-max_cups = min(water_rest, milk_rest, coffee_rest)
+if choose_option == "buy":
+    print("Which kind of coffee do you want? 1 - espresso, 2 - latte or 3 - cappuccino?")
+    coffee_type = int(input())
+    if coffee_type == 1:
+        mach_water -= 250
+        mach_coffee -= 16
+        mach_money += 4
+        mach_cups -= 1
+    elif coffee_type == 2:
+        mach_water -= 350
+        mach_milk -= 75
+        mach_coffee -= 20
+        mach_money += 7
+        mach_cups -= 1
+    elif coffee_type == 3:
+        mach_water -= 200
+        mach_milk -= 100
+        mach_coffee -= 12
+        mach_money += 6
+        mach_cups -= 1
+elif choose_option == "fill":
+    mach_water += int(input())
+    mach_milk += int(input())
+    mach_coffee += int(input())
+    mach_cups += int(input())
+elif choose_option == "take":
+    print(f"I gave you ${mach_money}")
+    mach_money = 0
 
-# Ask for user input about how many cups of coffee and return message
-print(f"Write how many cups of coffee you will need:")
-cups_of_coffee = int(input())
+print("The coffee machine has:")
+print(f"{mach_water} of water")
+print(f"{mach_milk} of milk")
+print(f"{mach_coffee} of coffee beans")
+print(f"{mach_cups} of disposable cups")
+print(f"{mach_money} of money")
 
-if cups_of_coffee > max_cups:
-    print(f"No, I can make only {max_cups} cups of cofffee")
-elif cups_of_coffee == max_cups:
-    print(f"Yes, I can make that amount of coffee")
-elif cups_of_coffee < max_cups:
-    print(f"Yes, I can make that amount of coffee (and even {max_cups - cups_of_coffee} more than that)")
